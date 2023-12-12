@@ -7,11 +7,39 @@
 </head>
 <body>
     <h1>
-        Axios:
-    </h1>
-    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+        Weather App:
+        <form onsubmit="getweather(); return false">
 
+            <input type="text" id="cityName">
+            <button type="submit">Get Weather</button>
+
+        </form>
+    </h1>
+    
 <script src="./object.js"></script>
-<script src="./weather.js"></script>
+<script>
+    
+    let getweather = ()=>{
+       
+    let cityName = document.querySelector("#cityName").value;
+       
+const apiKey = 'e0f99c494c2ce394a18cc2fd3f100543';
+const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${apiKey}`;
+
+axios.get(apiUrl)
+    .then(function (response) {
+        // Handle success
+        console.log(response.data);
+    })
+    .catch(function (error) {
+        // Handle error
+        console.error(error);
+    });
+
+}  
+
+</script>
+<script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+
 </body>
 </html>
