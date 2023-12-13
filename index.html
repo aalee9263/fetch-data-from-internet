@@ -29,8 +29,11 @@ const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&un
 axios.get(apiUrl)
     .then(function (response) {
         // Handle success
-        console.log(response.data);
+        console.log(response.data.main.temp);
     })
+
+
+
     .catch(function (error) {
         // Handle error
         console.error(error);
@@ -38,7 +41,14 @@ axios.get(apiUrl)
 
 }  
 
+document.querySelector("#temperature").innerHTML=`<h3>${response.data.main.temp}</h3>`; 
+
+
+
 </script>
+
+
+
 <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
 
 </body>
